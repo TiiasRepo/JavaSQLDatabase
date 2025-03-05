@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="618.0" prefWidth="906.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="collectiondatabase.FXMLDocumentController">
+   <top>
+      <VBox prefHeight="32.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+         <children>
+            <MenuBar>
+              <menus>
+                <Menu mnemonicParsing="false" text="File">
+                  <items>
+                    <MenuItem mnemonicParsing="false" onAction="#menuCloseClicked" text="Close" />
+                  </items>
+                </Menu>
+              </menus>
+            </MenuBar>
+         </children>
+      </VBox>
+   </top>
+   <center>
+      <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+        <tabs>
+          <Tab text="Pelit">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Label layoutX="24.0" layoutY="27.0" text="Nimi" />
+                        <Label layoutX="21.0" layoutY="106.0" text="Kunto" />
+                        <Label layoutX="21.0" layoutY="147.0" text="Käytetty" />
+                        <Label layoutX="24.0" layoutY="66.0" text="ID" />
+                        <TextField fx:id="peliNimi" layoutX="107.0" layoutY="23.0" />
+                        <TextField fx:id="peliID" layoutX="107.0" layoutY="62.0" />
+                        <TextField fx:id="peliKunto" layoutX="107.0" layoutY="102.0" />
+                        <TextField fx:id="peliUsed" layoutX="107.0" layoutY="143.0" />
+                        <Label layoutX="19.0" layoutY="186.0" text="Julkaisuvuosi" />
+                        <TextField fx:id="peliVuosi" layoutX="107.0" layoutY="182.0" />
+                        <TableView fx:id="gameTable" layoutX="323.0" layoutY="127.0" prefHeight="408.0" prefWidth="574.0">
+                          <columns>
+                            <TableColumn fx:id="cPeliID" prefWidth="66.0" text="ID" />
+                            <TableColumn fx:id="cPeliNimi" prefWidth="260.0" text="Nimi" />
+                              <TableColumn fx:id="cPeliKunto" prefWidth="79.0" text="Kunto" />
+                              <TableColumn fx:id="cPeliUsed" prefWidth="87.0" text="Käytetty" />
+                              <TableColumn fx:id="cPeliVuosi" prefWidth="81.0" text="Julkaisuvuosi" />
+                          </columns>
+                        </TableView>
+                        <TextArea fx:id="peliTapahtumat" layoutX="30.0" layoutY="316.0" prefHeight="219.0" prefWidth="245.0" />
+                        <Button fx:id="addPeli" layoutX="153.0" layoutY="224.0" mnemonicParsing="false" onAction="#insertGame" text="Lisää peli" />
+                        <TextField fx:id="peliIdfunction" layoutX="356.0" layoutY="36.0" />
+                        <TextField fx:id="peliUusiNimi" layoutX="550.0" layoutY="36.0" />
+                        <Button fx:id="peliEtsi" layoutX="356.0" layoutY="75.0" mnemonicParsing="false" onAction="#searchGame" text="Etsi" />
+                        <Button fx:id="peliUpdate" layoutX="419.0" layoutY="75.0" mnemonicParsing="false" onAction="#updateGameName" text="Päivitä" />
+                        <Button fx:id="peliPoista" layoutX="503.0" layoutY="75.0" mnemonicParsing="false" onAction="#deleteGame" text="Poista" />
+                        <Button fx:id="peliShowAll" layoutX="584.0" layoutY="75.0" mnemonicParsing="false" onAction="#searchGames" text="Näytä kaikki" />
+                        <Separator layoutX="302.0" layoutY="2.0" orientation="VERTICAL" prefHeight="549.0" prefWidth="12.0" />
+                        <Label layoutX="388.0" layoutY="15.0" text="Pelin ID" />
+                        <Label layoutX="592.0" layoutY="15.0" text="Uusi nimi" />
+                        <Label layoutX="33.0" layoutY="292.0" text="Tapahtumat" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+            <Tab text="Pelimusiikki">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Label layoutX="24.0" layoutY="27.0" text="Nimi" />
+                        <Label layoutX="21.0" layoutY="106.0" text="Kunto" />
+                        <Label layoutX="21.0" layoutY="147.0" text="Käytetty" />
+                        <Label layoutX="24.0" layoutY="66.0" text="ID" />
+                        <TextField fx:id="musaNimi" layoutX="107.0" layoutY="23.0" />
+                        <TextField fx:id="musaID" layoutX="107.0" layoutY="62.0" />
+                        <TextField fx:id="musaKunto" layoutX="107.0" layoutY="102.0" />
+                        <TextField fx:id="musaUsed" layoutX="107.0" layoutY="143.0" />
+                        <TableView fx:id="albumTable" layoutX="323.0" layoutY="127.0" prefHeight="408.0" prefWidth="574.0">
+                           <columns>
+                              <TableColumn fx:id="cMusaId" prefWidth="75.0" text="ID" />
+                              <TableColumn fx:id="cMusaNimi" prefWidth="325.0" text="Nimi" />
+                              <TableColumn fx:id="cMusaKunto" prefWidth="85.0" text="Kunto" />
+                              <TableColumn fx:id="cMusaUsed" prefWidth="88.0" text="Käytetty" />
+                           </columns>
+                        </TableView>
+                        <TextArea fx:id="musaTapahtumat" layoutX="30.0" layoutY="316.0" prefHeight="219.0" prefWidth="245.0" />
+                        <Button fx:id="addMusa" layoutX="141.0" layoutY="182.0" mnemonicParsing="false" onAction="#insertAlbum" text="Lisää albumi" />
+                        <TextField fx:id="musaIdfunction" layoutX="356.0" layoutY="36.0" />
+                        <TextField fx:id="musaUusiNimi" layoutX="550.0" layoutY="36.0" />
+                        <Button fx:id="musaEtsi" layoutX="356.0" layoutY="75.0" mnemonicParsing="false" onAction="#searchAlbum" text="Etsi" />
+                        <Button fx:id="musaUpdate" layoutX="419.0" layoutY="75.0" mnemonicParsing="false" onAction="#updateAlbumName" text="Päivitä" />
+                        <Button fx:id="musaPoista" layoutX="503.0" layoutY="75.0" mnemonicParsing="false" onAction="#deleteAlbum" text="Poista" />
+                        <Button fx:id="musaShowAll" layoutX="584.0" layoutY="75.0" mnemonicParsing="false" onAction="#searchAlbums" text="Näytä kaikki" />
+                        <Separator layoutX="302.0" layoutY="2.0" orientation="VERTICAL" prefHeight="549.0" prefWidth="12.0" />
+                        <Label layoutX="388.0" layoutY="15.0" text="Albumin ID" />
+                        <Label layoutX="592.0" layoutY="15.0" text="Uusi nimi" />
+                        <Label layoutX="33.0" layoutY="292.0" text="Tapahtumat" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Mangat">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Label layoutX="24.0" layoutY="27.0" text="Nimi" />
+                        <Label layoutX="21.0" layoutY="106.0" text="Kunto" />
+                        <Label layoutX="21.0" layoutY="147.0" text="Käytetty" />
+                        <Label layoutX="24.0" layoutY="66.0" text="ID" />
+                        <TextField fx:id="mangaNimi" layoutX="107.0" layoutY="23.0" />
+                        <TextField fx:id="MangaId" layoutX="107.0" layoutY="62.0" />
+                        <TextField fx:id="mangaKunto" layoutX="107.0" layoutY="102.0" />
+                        <TextField fx:id="mangaUsed" layoutX="107.0" layoutY="143.0" />
+                        <TableView fx:id="mangaTable" layoutX="323.0" layoutY="127.0" prefHeight="408.0" prefWidth="574.0">
+                           <columns>
+                              <TableColumn fx:id="cMangaId" prefWidth="75.0" text="ID" />
+                              <TableColumn fx:id="cMangaNimi" prefWidth="325.0" text="Nimi" />
+                              <TableColumn fx:id="cMangaKunto" prefWidth="85.0" text="Kunto" />
+                              <TableColumn fx:id="cMangaUsed" prefWidth="88.0" text="Käytetty" />
+                           </columns>
+                        </TableView>
+                        <TextArea fx:id="mangaTapahtumat" layoutX="30.0" layoutY="316.0" prefHeight="219.0" prefWidth="245.0" />
+                        <Button fx:id="addManga" layoutX="141.0" layoutY="182.0" mnemonicParsing="false" onAction="#insertManga" text="Lisää manga" />
+                        <TextField fx:id="mangaIdfunction" layoutX="356.0" layoutY="36.0" />
+                        <TextField fx:id="mangaUusiNimi" layoutX="550.0" layoutY="36.0" />
+                        <Button fx:id="mangaEtsi" layoutX="356.0" layoutY="75.0" mnemonicParsing="false" onAction="#searchManga" text="Etsi" />
+                        <Button fx:id="mangaUpdate" layoutX="419.0" layoutY="75.0" mnemonicParsing="false" onAction="#updateMangaName" text="Päivitä" />
+                        <Button fx:id="mangaPoista" layoutX="503.0" layoutY="75.0" mnemonicParsing="false" onAction="#deleteManga" text="Poista" />
+                        <Button fx:id="mangaShowAll" layoutX="584.0" layoutY="75.0" mnemonicParsing="false" onAction="#searchMangas" text="Näytä kaikki" />
+                        <Separator layoutX="302.0" layoutY="2.0" orientation="VERTICAL" prefHeight="549.0" prefWidth="12.0" />
+                        <Label layoutX="388.0" layoutY="15.0" text="Mangan ID" />
+                        <Label layoutX="592.0" layoutY="15.0" text="Uusi nimi" />
+                        <Label layoutX="33.0" layoutY="292.0" text="Tapahtumat" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Figuurit">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Label layoutX="24.0" layoutY="27.0" text="Nimi" />
+                        <Label layoutX="21.0" layoutY="106.0" text="Kunto" />
+                        <Label layoutX="21.0" layoutY="147.0" text="Käytetty" />
+                        <Label layoutX="24.0" layoutY="66.0" text="ID" />
+                        <TextField fx:id="figuuriNimi" layoutX="107.0" layoutY="23.0" />
+                        <TextField fx:id="figuuriId" layoutX="107.0" layoutY="62.0" />
+                        <TextField fx:id="figuuriKunto" layoutX="107.0" layoutY="102.0" />
+                        <TextField fx:id="figuuriUsed" layoutX="107.0" layoutY="143.0" />
+                        <TableView fx:id="figureTable" layoutX="323.0" layoutY="127.0" prefHeight="408.0" prefWidth="574.0">
+                           <columns>
+                              <TableColumn fx:id="cFifuuriId" prefWidth="75.0" text="ID" />
+                              <TableColumn fx:id="cFiguuriNimi" prefWidth="325.0" text="Nimi" />
+                              <TableColumn fx:id="cFiguuriKunto" prefWidth="85.0" text="Kunto" />
+                              <TableColumn fx:id="cFiguuriUsed" prefWidth="88.0" text="Käytetty" />
+                           </columns>
+                        </TableView>
+                        <TextArea fx:id="figuuriTapahtumat" layoutX="30.0" layoutY="316.0" prefHeight="219.0" prefWidth="245.0" />
+                        <Button fx:id="addFiguuri" layoutX="142.0" layoutY="182.0" mnemonicParsing="false" onAction="#insertFigure" text="Lisää figuuri" />
+                        <TextField fx:id="figuuriIdfunction" layoutX="356.0" layoutY="36.0" />
+                        <TextField fx:id="figuuriUusiNimi" layoutX="550.0" layoutY="36.0" />
+                        <Button fx:id="figuuriEtsi" layoutX="356.0" layoutY="75.0" mnemonicParsing="false" onAction="#searchFigure" text="Etsi" />
+                        <Button fx:id="figuuriUpdate" layoutX="419.0" layoutY="75.0" mnemonicParsing="false" onAction="#updateFigureName" text="Päivitä" />
+                        <Button fx:id="figuuriPoista" layoutX="503.0" layoutY="75.0" mnemonicParsing="false" onAction="#deleteFigure" text="Poista" />
+                        <Button fx:id="figuuriShowAll" layoutX="584.0" layoutY="75.0" mnemonicParsing="false" onAction="#searchFigures" text="Näytä kaikki" />
+                        <Separator layoutX="302.0" layoutY="2.0" orientation="VERTICAL" prefHeight="549.0" prefWidth="12.0" />
+                        <Label layoutX="388.0" layoutY="15.0" text="Figuurin ID" />
+                        <Label layoutX="592.0" layoutY="15.0" text="Uusi nimi" />
+                        <Label layoutX="33.0" layoutY="292.0" text="Tapahtumat" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Pehmolelut">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Label layoutX="24.0" layoutY="27.0" text="Nimi" />
+                        <Label layoutX="21.0" layoutY="106.0" text="Kunto" />
+                        <Label layoutX="21.0" layoutY="147.0" text="Käytetty" />
+                        <Label layoutX="24.0" layoutY="66.0" text="ID" />
+                        <TextField fx:id="pehmoNimi" layoutX="107.0" layoutY="23.0" />
+                        <TextField fx:id="pehmoId" layoutX="107.0" layoutY="62.0" />
+                        <TextField fx:id="pehmoKunto" layoutX="107.0" layoutY="102.0" />
+                        <TextField fx:id="pehmoUsed" layoutX="107.0" layoutY="143.0" />
+                        <TableView fx:id="plushieTable" layoutX="323.0" layoutY="127.0" prefHeight="408.0" prefWidth="574.0">
+                           <columns>
+                              <TableColumn fx:id="cPehmoId" prefWidth="75.0" text="ID" />
+                              <TableColumn fx:id="cPehmoNimi" prefWidth="325.0" text="Nimi" />
+                              <TableColumn fx:id="cPehmoKunto" prefWidth="85.0" text="Kunto" />
+                              <TableColumn fx:id="cPehmoUsed" prefWidth="88.0" text="Käytetty" />
+                           </columns>
+                        </TableView>
+                        <TextArea fx:id="pehmoTapahtumat" layoutX="30.0" layoutY="316.0" prefHeight="219.0" prefWidth="245.0" />
+                        <Button fx:id="addPehmo" layoutX="131.0" layoutY="182.0" mnemonicParsing="false" onAction="#insertPlushie" text="Lisää Pehmolelu" />
+                        <TextField fx:id="pehmoIdfunction" layoutX="356.0" layoutY="36.0" />
+                        <TextField fx:id="pehmoUusiNimi" layoutX="550.0" layoutY="36.0" />
+                        <Button fx:id="pehmoEtsi" layoutX="356.0" layoutY="75.0" mnemonicParsing="false" onAction="#searchPlushie" text="Etsi" />
+                        <Button fx:id="pehmoUpdate" layoutX="419.0" layoutY="75.0" mnemonicParsing="false" onAction="#updatePlushieName" text="Päivitä" />
+                        <Button fx:id="pehmoPoista" layoutX="503.0" layoutY="75.0" mnemonicParsing="false" onAction="#deletePlushie" text="Poista" />
+                        <Button fx:id="pehmoShowAll" layoutX="584.0" layoutY="75.0" mnemonicParsing="false" onAction="#searchPlushies" text="Näytä kaikki" />
+                        <Separator layoutX="302.0" layoutY="2.0" orientation="VERTICAL" prefHeight="549.0" prefWidth="12.0" />
+                        <Label layoutX="388.0" layoutY="15.0" text="Pehmolelun ID" />
+                        <Label layoutX="592.0" layoutY="15.0" text="Uusi nimi" />
+                        <Label layoutX="33.0" layoutY="292.0" text="Tapahtumat" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+   </center>
+</BorderPane>
